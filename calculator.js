@@ -151,8 +151,30 @@ buttons.forEach((button) => {
                 expression += "0";
             }
         }
+        
+        // Handle decimal point
+        if (value === ".") {
+            const currentNumber = expression
+                .split(/[+−×÷]/)
+                .pop();
+
+            if (currentNumber.includes(".")) {
+                return;
+            }
+
+            if (currentNumber === "") {
+                expression += "0";
+            }
+
+            expression += ".";
+            updateDisplay(expression);
+            return;
+        }
 
         expression += value;
         updateDisplay(expression);
+
+        // expression += value;
+        // updateDisplay(expression);
     });
 });

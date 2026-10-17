@@ -44,7 +44,7 @@ body h1{
     "btn7 btn8 btn9 mul"
     "btn4 btn5 btn6 sub"
     "btn1 btn2 btn3 add"
-    "btn0 res . .";
+    "btn0 dec res res";
 }
 #input_box{
     width: 460px;
@@ -70,12 +70,16 @@ body h1{
 .num_btn{
     width: 100px;
     height: 50px;
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     border-radius: 20px;
     border: 1px solid rgb(10, 139, 139);
     box-shadow: 1px 1px 5px rgb(92, 87, 87);
     background-color: #FFFc33;
+}
+#res{
+    width: 230px;
+    height: 50px;
 }
 .num_btn:hover{
     background-color: #fffc5c;
