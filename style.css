@@ -33,12 +33,20 @@ body{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     /* grid-template-rows: 1fr 50px 50px 50px 50px 50px; */
     grid-template-areas: 
+    "title title title title"
     "input input input input"
     "AC C con div"
     "btn7 btn8 btn9 mul"
     "btn4 btn5 btn6 sub"
     "btn1 btn2 btn3 add"
     "btn0 res . .";
+}
+.title{
+    grid-area: title;
+    text-align: center;
+    color: #ffffff;
+    font-size: 34px;
+    letter-spacing: 1px;
 }
 #input_box{
     width: 460px;
@@ -88,6 +96,9 @@ body{
         width: 100%;
         gap: 12px;
     }
+    .title{
+        font-size: 28px;
+    }
     #input_box{
         width: 100%;
         height: 72px;
@@ -113,6 +124,9 @@ body{
     }
     .main{
         gap: 10px;
+    }
+    .title{
+        font-size: 24px;
     }
     #input_box{
         height: 64px;
