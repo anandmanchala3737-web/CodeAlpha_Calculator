@@ -2,13 +2,21 @@ const inputBox = document.getElementById('input_box');
 const buttons = document.querySelectorAll('.num_btn');
 
 let expression = '';
+const operators = ['+', '-', '*', '/'];
 
 const updateDisplay = (value) => {
   inputBox.value = value;
 };
 
 const calculateResult = () => {
-  if (!expression.trim()) return;
+  expression = inputBox.value.trim();
+  if (!expression) return;
+
+  const lastChar = expression[expression.length - 1];
+  if (operators.includes(lastChar)) {
+    expression = expression.slice(0, -1);
+  }
+  if (!expression) return;
 
   try {
     const result = Function(`"use strict"; return (${expression})`)();
@@ -16,6 +24,9 @@ const calculateResult = () => {
     if (typeof result === 'number' && Number.isFinite(result)) {
       expression = String(result);
       updateDisplay(expression);
+    } else {
+      updateDisplay('Error');
+      expression = '';
     }
   } catch {
     updateDisplay('Error');
@@ -24,6 +35,7 @@ const calculateResult = () => {
 };
 
 const toggleSign = () => {
+  expression = inputBox.value.trim();
   if (!expression.trim()) return;
 
   const parsed = Number(expression);
@@ -36,6 +48,7 @@ const toggleSign = () => {
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     const value = button.textContent.trim();
+    expression = inputBox.value.trim();
 
     if (value === 'AC') {
       expression = '';
@@ -56,6 +69,26 @@ buttons.forEach((button) => {
 
     if (value === '+/-') {
       toggleSign();
+      return;
+    }
+
+    if (operators.includes(value)) {
+      if (!expression) {
+        if (value === '-') {
+          expression = '-';
+          updateDisplay(expression);
+        }
+        return;
+      }
+
+      const lastChar = expression[expression.length - 1];
+      if (operators.includes(lastChar)) {
+        expression = `${expression.slice(0, -1)}${value}`;
+      } else {
+        expression += value;
+      }
+
+      updateDisplay(expression);
       return;
     }
 
