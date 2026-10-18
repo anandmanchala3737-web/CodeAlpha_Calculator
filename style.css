@@ -74,6 +74,7 @@ body h1{
     border: 1px solid rgb(10, 139, 139);
     box-shadow: 1px 1px 5px rgb(92, 87, 87);
     background-color: #FFFc33;
+    cursor: pointer;
 }
 #res{
     width: 230px;
