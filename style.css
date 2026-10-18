@@ -72,3 +72,58 @@ body{
     background-color: #fffc5c;
     /* border: 1px solid rgb(49, 177, 177); */
 }
+
+@media (max-width: 768px) {
+    body{
+        padding: 16px;
+        align-items: flex-start;
+    }
+    .calculator{
+        width: 100%;
+        max-width: 380px;
+        height: auto;
+        padding: 16px;
+    }
+    .main{
+        width: 100%;
+        gap: 12px;
+    }
+    #input_box{
+        width: 100%;
+        height: 72px;
+    }
+    #input_box::placeholder{
+        font-size: 28px;
+        padding: 16px;
+    }
+    .num_btn{
+        width: 100%;
+        height: 48px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    body{
+        padding: 12px;
+    }
+    .calculator{
+        max-width: 100%;
+        padding: 12px;
+    }
+    .main{
+        gap: 10px;
+    }
+    #input_box{
+        height: 64px;
+    }
+    #input_box::placeholder{
+        font-size: 24px;
+        padding: 12px;
+    }
+    .num_btn{
+        height: 44px;
+        font-size: 16px;
+        border-radius: 14px;
+    }
+}
